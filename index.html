@@ -21,6 +21,24 @@ body{margin:0;background:#EEF0EB}
 a{color:#2F4A3A}a:hover{color:#17241C}
 section[id]{scroll-margin-top:16px}
 input:focus,textarea:focus{outline:2px solid #2F4A3A;outline-offset:1px}
+.player{background:#17201B;border-radius:24px;padding:28px}
+.pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#EEF0EB;border:1px solid #5A6A60;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:500}
+.pill:hover{background:#EEF0EB;color:#17201B}
+.ctl{width:48px;height:48px;border-radius:999px;border:none;background:transparent;color:#EEF0EB;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font:inherit}
+.ctl:hover{background:#2A352E;color:#FFFFFF}
+#play:hover{background:#E6C88F}
+#seek{--p:0%;-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:linear-gradient(to right,#D9B77A var(--p),#36433B var(--p));cursor:pointer;margin:0}
+#seek::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#FFFFFF;border:none}
+#seek::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#FFFFFF;border:none}
+#seek:disabled{cursor:default}
+.ep{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 12px;margin:0 -12px;border:none;border-radius:12px;background:transparent;color:#EEF0EB;text-align:left;text-decoration:none;font:inherit;cursor:pointer;box-sizing:content-box}
+.ep:hover{background:#26312A;color:#FFFFFF}
+.ep.on{background:#26312A}.ep.on .ep-t{color:#E6C88F}
+.ep-t{font-size:15px;font-weight:500;min-width:0}
+.ep-m{flex:0 0 auto;font-size:13px;color:#A9B3A7;font-variant-numeric:tabular-nums}
+#episodes li+li .ep{border-top:1px solid #26312A;border-radius:0}
+#episodes li+li .ep:hover,#episodes li+li .ep.on{border-radius:12px}
+@media (max-width:520px){#pastor dl{grid-template-columns:1fr!important}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Church","name":"Stonybank Community Church","address":{"@type":"PostalAddress","streetAddress":"35 Stoney Bank Road","addressLocality":"Glen Mills","addressRegion":"PA","postalCode":"19342","addressCountry":"US"},"telephone":"+1-610-459-1827"}
@@ -41,6 +59,7 @@ input:focus,textarea:focus{outline:2px solid #2F4A3A;outline-offset:1px}
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; font-weight: 500">
 <a href="#visit" style="text-decoration: none; padding: 12px 0">Visit</a>
 <a href="#gatherings" style="text-decoration: none; padding: 12px 0">Gatherings</a>
+<a href="#news" style="text-decoration: none; padding: 12px 0">Events</a>
 <a href="#pastor" style="text-decoration: none; padding: 12px 0">Our Pastor</a>
 <a href="#listen" style="text-decoration: none; padding: 12px 0">Listen</a>
 <a href="#give" style="text-decoration: none; padding: 12px 0">Give</a>
@@ -151,47 +170,160 @@ input:focus,textarea:focus{outline:2px solid #2F4A3A;outline-offset:1px}
 </div>
 </section>
 
-<section id="pastor" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
-<div style="flex: 1 1 360px; min-width: 0; aspect-ratio: 5 / 4; background: #D3D9CF; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: #4A554E">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 17l-5-5-8 7"></path></svg>
-<span style="font-size: 14px; font-weight: 500">Photo: Pastor Jim &amp; Diana Carroll</span>
+<section id="news" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #8A5A1F">What's happening</p>
+<h2 style="margin: 0 0 48px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.01em">Announcements &amp; upcoming events.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 48px">
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0 0 4px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #4A554E; font-weight: 600">Announcements</h3>
+
+<article style="background: #FFFFFF; border-radius: 16px; padding: 24px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F4A3A; background: #E2E6DE; padding: 4px 10px; border-radius: 999px">[CATEGORY]</span>
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500">[Announcement title]</h4>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A554E">[One or two sentences with the details people need to know.]</p>
+<span style="font-size: 13px; color: #5C665F">Posted [DATE]</span>
+</article>
+
+<article style="background: #FFFFFF; border-radius: 16px; padding: 24px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F4A3A; background: #E2E6DE; padding: 4px 10px; border-radius: 999px">[CATEGORY]</span>
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500">[Announcement title]</h4>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A554E">[One or two sentences with the details people need to know.]</p>
+<span style="font-size: 13px; color: #5C665F">Posted [DATE]</span>
+</article>
+
+<article style="background: #FFFFFF; border-radius: 16px; padding: 24px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F4A3A; background: #E2E6DE; padding: 4px 10px; border-radius: 999px">[CATEGORY]</span>
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500">[Announcement title]</h4>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A554E">[One or two sentences with the details people need to know.]</p>
+<span style="font-size: 13px; color: #5C665F">Posted [DATE]</span>
+</article>
 </div>
-<div style="flex: 1 1 440px; min-width: 0">
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column">
+<h3 style="margin: 0 0 20px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #4A554E; font-weight: 600">Upcoming events</h3>
+
+<article style="display: flex; gap: 20px; padding: 20px 0; border-top: 1px solid #CFD4CC">
+<div style="flex: 0 0 72px; height: 76px; border-radius: 14px; background: #2F4A3A; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #F1D9A8">[MON]</span>
+<span style="font-family: 'Newsreader', Georgia, serif; font-size: 30px; line-height: 1">[00]</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500">[Event name]</h4>
+<span style="font-size: 14px; font-weight: 600; color: #2F4A3A">[Day] · [Time] · [Location]</span>
+<p style="margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: #4A554E">[Short description of the event.]</p>
+</div>
+</article>
+
+<article style="display: flex; gap: 20px; padding: 20px 0; border-top: 1px solid #CFD4CC">
+<div style="flex: 0 0 72px; height: 76px; border-radius: 14px; background: #2F4A3A; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #F1D9A8">[MON]</span>
+<span style="font-family: 'Newsreader', Georgia, serif; font-size: 30px; line-height: 1">[00]</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500">[Event name]</h4>
+<span style="font-size: 14px; font-weight: 600; color: #2F4A3A">[Day] · [Time] · [Location]</span>
+<p style="margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: #4A554E">[Short description of the event.]</p>
+</div>
+</article>
+
+<article style="display: flex; gap: 20px; padding: 20px 0; border-top: 1px solid #CFD4CC; border-bottom: 1px solid #CFD4CC">
+<div style="flex: 0 0 72px; height: 76px; border-radius: 14px; background: #2F4A3A; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #F1D9A8">[MON]</span>
+<span style="font-family: 'Newsreader', Georgia, serif; font-size: 30px; line-height: 1">[00]</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<h4 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500">[Event name]</h4>
+<span style="font-size: 14px; font-weight: 600; color: #2F4A3A">[Day] · [Time] · [Location]</span>
+<p style="margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: #4A554E">[Short description of the event.]</p>
+</div>
+</article>
+</div>
+
+</div>
+</section>
+
+<section id="pastor" style="background: #E2E6DE">
+<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 420px; min-width: 0; position: relative; padding-bottom: 72px">
+<img src="assets/carroll-family.jpg" alt="Pastor Jim and Diana Carroll with two of their daughters, outdoors among trees" loading="lazy" style="display: block; width: 88%; aspect-ratio: 300 / 243; object-fit: cover; border-radius: 20px">
+<img src="assets/jim-diana.jpg" alt="Pastor Jim and Diana Carroll: at Stonybank since March 2019, five children, together in ministry since 1981" loading="lazy" style="position: absolute; right: 0; bottom: 0; width: 46%; aspect-ratio: 300 / 243; object-fit: cover; border-radius: 16px; border: 6px solid #E2E6DE">
+</div>
+<div style="flex: 1 1 420px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #8A5A1F">Our pastor</p>
-<h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.01em">Meet Jim &amp; Diana Carroll.</h2>
-<p style="margin: 24px 0 0; font-size: 17px; line-height: 1.65; color: #3B463F">Pastor Jim and Diana are eager to welcome you to worship with them at Stonybank. [A SHORT BIO: how long they've served here, family, and what Jim loves to preach.]</p>
-<blockquote style="margin: 32px 0 0; padding: 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px; line-height: 1.4; font-style: italic; color: #2F4A3A">[A personal word of welcome from Pastor Jim.]</blockquote>
+<h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.01em">Meet Pastor Jim &amp; Diana Carroll.</h2>
+<p style="margin: 24px 0 0; font-size: 17px; line-height: 1.65; color: #3B463F">Pastor Jim and Diana are eager to welcome you to worship with them at Stonybank. [A SHORT BIO: what Jim loves to preach and what they love about Stonybank.]</p>
+<dl style="margin: 32px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="border-top: 2px solid #2F4A3A; padding-top: 12px"><dt style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #4A554E; font-weight: 600">At Stonybank</dt><dd style="margin: 6px 0 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Since 2019</dd></div>
+<div style="border-top: 2px solid #2F4A3A; padding-top: 12px"><dt style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #4A554E; font-weight: 600">In ministry</dt><dd style="margin: 6px 0 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Since 1981</dd></div>
+<div style="border-top: 2px solid #2F4A3A; padding-top: 12px"><dt style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #4A554E; font-weight: 600">Family</dt><dd style="margin: 6px 0 0; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Five children</dd></div>
+</dl>
+</div>
 </div>
 </section>
 
 <section id="listen" style="background: #2F4A3A; color: #EEF0EB">
-<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
-<div style="flex: 1 1 400px; min-width: 0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px">
+<div style="flex: 1 1 360px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #D9B77A">Listen</p>
 <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.01em">Missed a Sunday? Catch the message.</h2>
-<p style="margin: 24px 0 0; font-size: 17px; line-height: 1.65; color: #CBD3C9">Sermons from Pastor Jim, posted each week. Listen here or follow along in your favorite podcast app.</p>
+<p style="margin: 24px 0 0; font-size: 17px; line-height: 1.65; color: #CBD3C9">Bible teaching from Pastor Jim, straight from our podcast. Play it here, or follow along in your favorite app.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px">
+<a class="pill" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="10" r="3"></circle><path d="M12 13v8M7.5 15.5a7 7 0 1 1 9 0"></path></svg>Apple Podcasts</a>
+<a class="pill" href="https://podcasters.spotify.com/pod/show/james-carroll1" target="_blank" rel="noopener">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.6c2.5-.7 5.3-.4 7.4.8M8.6 15.5c2-.5 4-.3 5.6.6"></path></svg>Spotify</a>
 </div>
-<div style="flex: 1 1 420px; min-width: 0; background: #17201B; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 20px">
-<span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #D9B77A; font-weight: 600">Latest message</span>
-<div style="display: flex; align-items: center; gap: 20px">
-<button type="button" aria-label="Play latest message" style="flex: 0 0 auto; width: 64px; height: 64px; border-radius: 999px; border: none; background: #D9B77A; color: #17201B; display: flex; align-items: center; justify-content: center; cursor: pointer">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+</div>
+
+<div class="player" style="flex: 1.2 1 480px; min-width: 0">
+<div style="display: flex; gap: 20px; align-items: center">
+<div style="flex: 0 0 96px; height: 96px; border-radius: 18px; background: #EEF0EB; display: flex; align-items: center; justify-content: center">
+<img src="assets/logo-mark.png" alt="" style="height: 72px; width: auto">
+</div>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span id="np-label" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D9B77A; font-weight: 600">Latest message</span>
+<span id="np-title" style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; line-height: 1.15">What's Love Got To Do With It? (1 John 4)</span>
+<span id="np-meta" style="font-size: 14px; color: #A9B3A7">Pastor Jim Carroll</span>
+</div>
+</div>
+
+<div style="margin-top: 24px">
+<input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" disabled>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #A9B3A7; font-variant-numeric: tabular-nums; margin-top: 6px">
+<span id="t-cur">0:00</span><span id="t-dur">--:--</span>
+</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 12px">
+<button id="speed" class="ctl" type="button" aria-label="Playback speed" style="width: 56px; font-size: 14px; font-weight: 600">1×</button>
+<button id="back" class="ctl" type="button" aria-label="Back 15 seconds">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path><text x="12" y="15.5" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">15</text></svg>
 </button>
-<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
-<span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px">[EPISODE TITLE]</span>
-<span style="font-size: 14px; color: #A9B3A7">Pastor Jim Carroll · [DATE] · [SCRIPTURE]</span>
+<button id="play" type="button" aria-label="Play" style="width: 72px; height: 72px; border-radius: 999px; border: none; background: #D9B77A; color: #17201B; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg id="ic-play" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+<svg id="ic-pause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display: none"><path d="M7 5h4v14H7zM13 5h4v14h-4z"></path></svg>
+</button>
+<button id="fwd" class="ctl" type="button" aria-label="Forward 30 seconds">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.5-5.8"></path><path d="M20 4v4h-4"></path><text x="12" y="15.5" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">30</text></svg>
+</button>
+<a id="ext" class="ctl" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener" aria-label="Open episode in Apple Podcasts">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg>
+</a>
 </div>
-</div>
-<div style="height: 4px; border-radius: 4px; background: #36433B"><div style="width: 0%; height: 4px; border-radius: 4px; background: #D9B77A"></div></div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a href="https://www.stonybankchurch.com/podcast/" style="text-decoration: none; color: #EEF0EB; border: 1px solid #4F5D54; padding: 12px 18px; border-radius: 999px; font-size: 14px; font-weight: 500">All episodes</a>
-<a href="#listen" style="text-decoration: none; color: #EEF0EB; border: 1px solid #4F5D54; padding: 12px 18px; border-radius: 999px; font-size: 14px; font-weight: 500">Apple Podcasts</a>
-<a href="#listen" style="text-decoration: none; color: #EEF0EB; border: 1px solid #4F5D54; padding: 12px 18px; border-radius: 999px; font-size: 14px; font-weight: 500">Spotify</a>
-</div>
+
+<h3 style="margin: 28px 0 8px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9B3A7; font-weight: 600">Recent episodes</h3>
+<ol id="episodes" style="list-style: none; margin: 0; padding: 0">
+<li><a class="ep" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener"><span class="ep-t">What's Love Got To Do With It? (1 John 4)</span><span class="ep-m">Oct 27 · 33 min</span></a></li>
+<li><a class="ep" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener"><span class="ep-t">Love or Hate (1 John 3)</span><span class="ep-m">Oct 22 · 41 min</span></a></li>
+<li><a class="ep" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener"><span class="ep-t">A New Twist on Familiar Words (1 John 2)</span><span class="ep-m">Oct 12 · 30 min</span></a></li>
+<li><a class="ep" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener"><span class="ep-t">Missionary with FCA, Eddie Cabrera</span><span class="ep-m">Oct 12 · 21 min</span></a></li>
+<li><a class="ep" href="https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028" target="_blank" rel="noopener"><span class="ep-t">Once Upon a Time (1 John 1)</span><span class="ep-m">Oct 5 · 30 min</span></a></li>
+</ol>
+<audio id="audio" preload="none"></audio>
 </div>
 </div>
 </section>
-
 <section id="give" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px">
 <div style="background: #FFFFFF; border-radius: 24px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
 <div style="flex: 1 1 420px; min-width: 0">
@@ -253,5 +385,92 @@ input:focus,textarea:focus{outline:2px solid #2F4A3A;outline-offset:1px}
 </footer>
 
 </div>
+<script>
+(function () {
+  var SHOW_ID = '1469152028';
+  var SHOW_URL = 'https://podcasts.apple.com/us/podcast/stonybank-community-church-with-pastor-james-carroll/id1469152028';
+  var $ = function (id) { return document.getElementById(id); };
+  var audio = $('audio'), seek = $('seek'), playBtn = $('play');
+  var episodes = [], current = -1, speeds = [1, 1.25, 1.5, 2, 0.75], sp = 0;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.floor(s);
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0');
+  }
+  function fdate(d) { return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); }
+  function setPlaying(on) {
+    $('ic-play').style.display = on ? 'none' : '';
+    $('ic-pause').style.display = on ? '' : 'none';
+    playBtn.setAttribute('aria-label', on ? 'Pause' : 'Play');
+  }
+  function load(i, autoplay) {
+    var ep = episodes[i]; if (!ep) return;
+    current = i;
+    audio.src = ep.episodeUrl;
+    audio.playbackRate = speeds[sp];
+    $('np-label').textContent = i === 0 ? 'Latest message' : 'Now playing';
+    $('np-title').textContent = ep.trackName;
+    $('np-meta').textContent = 'Pastor Jim Carroll · ' + fdate(ep.releaseDate) + (ep.trackTimeMillis ? ' · ' + Math.round(ep.trackTimeMillis / 60000) + ' min' : '');
+    $('ext').href = ep.trackViewUrl || SHOW_URL;
+    seek.disabled = false; seek.value = 0;
+    $('t-cur').textContent = '0:00';
+    $('t-dur').textContent = ep.trackTimeMillis ? fmt(ep.trackTimeMillis / 1000) : '--:--';
+    document.querySelectorAll('#episodes .ep').forEach(function (el, j) { el.classList.toggle('on', j === i); });
+    if (autoplay) audio.play().catch(function () {});
+  }
+  function render() {
+    var list = $('episodes'); list.innerHTML = '';
+    episodes.forEach(function (ep, i) {
+      var li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; b.className = 'ep';
+      var t = document.createElement('span'); t.className = 'ep-t'; t.textContent = ep.trackName;
+      var m = document.createElement('span'); m.className = 'ep-m';
+      m.textContent = fdate(ep.releaseDate) + (ep.trackTimeMillis ? ' · ' + Math.round(ep.trackTimeMillis / 60000) + ' min' : '');
+      b.appendChild(t); b.appendChild(m);
+      b.addEventListener('click', function () { load(i, true); });
+      li.appendChild(b); list.appendChild(li);
+    });
+    load(0, false);
+  }
+
+  // Live episode list from the church's podcast (Apple Podcasts directory, JSONP so it works on any static host)
+  window.__sbEpisodes = function (data) {
+    var eps = (data.results || []).filter(function (r) { return r.wrapperType === 'podcastEpisode' && r.episodeUrl; });
+    eps.sort(function (a, b) { return new Date(b.releaseDate) - new Date(a.releaseDate); });
+    if (eps.length) { episodes = eps.slice(0, 6); render(); }
+  };
+  var s = document.createElement('script');
+  s.src = 'https://itunes.apple.com/lookup?id=' + SHOW_ID + '&media=podcast&entity=podcastEpisode&limit=12&callback=__sbEpisodes';
+  s.async = true;
+  document.body.appendChild(s);
+
+  playBtn.addEventListener('click', function () {
+    if (current < 0) { if (episodes.length) load(0, true); else window.open(SHOW_URL, '_blank'); return; }
+    audio.paused ? audio.play() : audio.pause();
+  });
+  $('back').addEventListener('click', function () { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+  $('fwd').addEventListener('click', function () { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+  $('speed').addEventListener('click', function () {
+    sp = (sp + 1) % speeds.length; audio.playbackRate = speeds[sp];
+    this.textContent = speeds[sp] + '×';
+  });
+  audio.addEventListener('play', function () { setPlaying(true); });
+  audio.addEventListener('pause', function () { setPlaying(false); });
+  audio.addEventListener('loadedmetadata', function () { $('t-dur').textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () {
+    if (!audio.duration) return;
+    seek.value = (audio.currentTime / audio.duration) * 100;
+    seek.style.setProperty('--p', seek.value + '%');
+    $('t-cur').textContent = fmt(audio.currentTime);
+  });
+  audio.addEventListener('ended', function () { if (current + 1 < episodes.length) load(current + 1, true); });
+  seek.addEventListener('input', function () {
+    if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration;
+    seek.style.setProperty('--p', seek.value + '%');
+  });
+})();
+</script>
 </body>
 </html>
